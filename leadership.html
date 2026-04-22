@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leadership — DNSO Science Olympiad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .open-banner {
+      background: linear-gradient(90deg, rgba(78,205,196,0.12), rgba(78,205,196,0.04));
+      border: 1px solid rgba(78,205,196,0.35);
+      border-radius: 10px;
+      padding: 1.2rem 2rem;
+      margin-bottom: 3.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--teal);
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
+    }
+    .open-banner span { font-size: 1.4rem; }
+
+    .officers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin-bottom: 5rem;
+    }
+
+    .officer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 2.2rem;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 2rem;
+      align-items: start;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .officer-card:hover {
+      border-color: var(--teal);
+      transform: translateX(4px);
+    }
+    .officer-card.duo {
+      border-left: 3px solid var(--teal);
+    }
+
+    .officer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .officer-icon { font-size: 2rem; margin-bottom: 0.2rem; }
+
+    .officer-title {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+      line-height: 1.35;
+    }
+
+    .officer-name-slot {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .name-line {
+      border-bottom: 1px dashed rgba(78,205,196,0.25);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .eligibility-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.08em;
+      color: #f7c84a;
+      border: 1px solid rgba(247,200,74,0.3);
+      background: rgba(247,200,74,0.07);
+      border-radius: 20px;
+      padding: 0.22rem 0.65rem;
+      margin-top: 0.2rem;
+      width: fit-content;
+    }
+
+    .officer-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.78;
+      padding-top: 0.2rem;
+    }
+
+    .officer-duties {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .duty-tag {
+      font-size: 0.7rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.07em;
+      padding: 0.22rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--teal);
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .officer-card, .officer-card.duo {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="atom-icon">⚛</div>
+      <span>DNSO</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="updates.html">Updates</a></li>
+      <li><a href="competition.html">Competition</a></li>
+      <li><a href="leadership.html" class="active">Leadership</a></li>
+      <li><a href="social.html">Social</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="hero-bg"></div>
+    <div class="page-hero-content fade-in delay-1">
+      <p class="section-tag">2025–2026 Officer Positions</p>
+      <h1 class="page-title">Our <span class="teal">Leadership</span></h1>
+      <p class="page-sub">The officers who lead DNSO's six teams, manage operations, and keep our club running strong.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+
+      <div class="open-banner fade-in">
+        <span>📣</span>
+        All positions are open — any current member can run!
+      </div>
+
+      <h2 class="section-title" style="margin-bottom:2.5rem">Officer <span class="teal">Positions</span></h2>
+
+      <div class="officers-list">
+
+        <!-- CO-PRESIDENTS -->
+        <div class="officer-card duo fade-in">
+          <div class="officer-left">
+            <div class="officer-icon">👑</div>
+            <p class="officer-title">Co-Presidents <br><em style="font-size:0.72rem;color:var(--text-muted);font-style:normal">(2 positions)</em></p>
+            <div class="officer-name-slot">
+              <div class="name-line">______________________</div>
+              <div class="name-line">______________________</div>
+            </div>
+            <span class="eligibility-tag">⚠ Juniors only</span>
+          </div>
+          <div class="officer-right">
+            <p class="officer-desc">
+              Leads the student body by running club-wide meetings and making important decisions in collaboration with the head coach and Vice President. Works with the head coach, VP, and Event Advisor to build rosters for all 6 teams. Coordinates with the Treasurer to ensure funds are spent efficiently, with the Secretary to maintain ASB compliance, and with the Technology Coordinator to keep the website and information database up to date.
+            </p>
+            <div class="officer-duties">
+              <span class="duty-tag">Club Meetings</span>
+              <span class="duty-tag">Roster Building</span>
+              <span class="duty-tag">Budget Oversight</span>
+              <span class="duty-tag">ASB Compliance</span>
+              <span class="duty-tag">Website Coordination</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- VICE PRESIDENT -->
+        <div class="officer-card fade-in delay-1">
+          <div class="officer-left">
+            <div class="officer-icon">🤝</div>
+            <p class="officer-title">Vice President</p>
+            <div class="officer-name-slot">
+              <div class="name-line">______________________</div>
+            </div>
+            <span class="eligibility-tag">⚠ Sophomores only</span>
+          </div>
+          <div class="officer-right">
+            <p class="officer-desc">
+              Leads club-wide meetings when the Presidents are absent and helps make key decisions alongside the Presidents and head coach. Works with the head coach, Presidents, and Event Advisor to build rosters for all 6 teams. Also responsible for coordinating the Event Advisor and Media Advisor.
+            </p>
+            <div class="officer-duties">
+              <span class="duty-tag">Meeting Leadership</span>
+              <span class="duty-tag">Roster Building</span>
+              <span class="duty-tag">Advisor Coordination</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TREASURER -->
+        <div class="officer-card fade-in delay-2">
+          <div class="officer-left">
+            <div class="officer-icon">💰</div>
+            <p class="officer-title">Treasurer</p>
+            <div class="officer-name-slot">
+              <div class="name-line">______________________</div>
+            </div>
+          </div>
+          <div class="officer-right">
+            <p class="officer-desc">
+              Responsible for all financial tasks of the club: balancing the budget, maintaining the bank account, calculating a reasonable registration fee, placing T-shirt orders, and filling out reimbursement forms for coaches and parent helpers. Also responsible for reaching out to corporations for potential sponsorship opportunities.
+            </p>
+            <div class="officer-duties">
+              <span class="duty-tag">Budget</span>
+              <span class="duty-tag">Bank Account</span>
+              <span class="duty-tag">Registration Fees</span>
+              <span class="duty-tag">T-Shirt Orders</span>
+              <span class="duty-tag">Reimbursements</span>
+              <span class="duty-tag">Sponsorships</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECRETARY / PUBLICITY -->
+        <div class="officer-card fade-in delay-1">
+          <div class="officer-left">
+            <div class="officer-icon">📋</div>
+            <p class="officer-title">Secretary / Publicity</p>
+            <div class="officer-name-slot">
+              <div class="name-line">______________________</div>
+            </div>
+          </div>
+          <div class="officer-right">
+            <p class="officer-desc">
+              In charge of the media team, managing items such as posters, flyers, club advertising, and T-shirts — organizing the process rather than designing everything personally. Keeps club minutes, takes notes during club-wide meetings, and ensures the club meets all ASB regulations.
+            </p>
+            <div class="officer-duties">
+              <span class="duty-tag">Media Team</span>
+              <span class="duty-tag">Posters & Flyers</span>
+              <span class="duty-tag">Club Minutes</span>
+              <span class="duty-tag">ASB Regulations</span>
+              <span class="duty-tag">Advertising</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TECHNOLOGY COORDINATOR -->
+        <div class="officer-card fade-in delay-2">
+          <div class="officer-left">
+            <div class="officer-icon">💻</div>
+            <p class="officer-title">Technology Coordinator</p>
+            <div class="officer-name-slot">
+              <div class="name-line">______________________</div>
+            </div>
+            <span class="eligibility-tag">💡 Coding experience recommended</span>
+          </div>
+          <div class="officer-right">
+            <p class="officer-desc">
+              In charge of maintaining the club website and a functional database of event information. Helps build a long-term knowledge base for Del Norte — logging event-specific details year over year (e.g., question formats, station layouts, which schools excel at which events, how to source building materials and help) so that students and coaches always have maximum information going forward.
+            </p>
+            <div class="officer-duties">
+              <span class="duty-tag">Website Maintenance</span>
+              <span class="duty-tag">Event Database</span>
+              <span class="duty-tag">Knowledge Base</span>
+              <span class="duty-tag">Historical Logs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUILDING EVENT ADVISOR -->
+        <div class="officer-card fade-in delay-3">
+          <div class="officer-left">
+            <div class="officer-icon">🔧</div>
+            <p class="officer-title">Building Event Advisor</p>
+            <div class="officer-name-slot">
+              <div class="name-line">______________________</div>
+            </div>
+            <span class="eligibility-tag">⚠ Must have competed in 1+ building event</span>
+          </div>
+          <div class="officer-right">
+            <p class="officer-desc">
+              Oversees the progress of all building events. Fully understands all applicable Science Olympiad rules for building events and ensures all participants follow them and stay within guidelines. Should be familiar with building events from prior experience. Assists coaches and students in procuring materials and funds, deciding on build plans, and executing the build process.
+            </p>
+            <div class="officer-duties">
+              <span class="duty-tag">Build Oversight</span>
+              <span class="duty-tag">Rules Compliance</span>
+              <span class="duty-tag">Materials Procurement</span>
+              <span class="duty-tag">Build Execution</span>
+              <span class="duty-tag">Funding</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /officers-list -->
+    </div>
+  </section>
+
+  <!-- FACULTY ADVISOR -->
+  <section class="section advisor-section">
+    <div class="section-inner">
+      <div class="advisor-card fade-in">
+        <div class="advisor-icon">🎓</div>
+        <div>
+          <p class="section-tag" style="margin-bottom:0.5rem">Faculty / Head Coach</p>
+          <h2 class="advisor-name">[ Advisor Name ]</h2>
+          <p class="body-text">Our head coach and faculty advisor guide the team through the season, providing mentorship, resources, and connecting DNSO with the broader Science Olympiad community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="teal">⚛</span> DNSO Science Olympiad</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="updates.html">Updates</a>
+        <a href="competition.html">Competition</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="social.html">Social</a>
+      </div>
+      <p class="footer-copy">© 2025 DNSO Science Olympiad. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
