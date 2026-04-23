@@ -3,14 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DNSO — Science Olympiad</title>
+  <title>Leadership — DNSO Science Olympiad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .open-banner {
+      background: linear-gradient(90deg, rgba(78,205,196,0.12), rgba(78,205,196,0.04));
+      border: 1px solid rgba(78,205,196,0.35);
+      border-radius: 10px;
+      padding: 1.2rem 2rem;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--teal);
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
+    }
+
+    .open-banner span {
+      font-size: 1.4rem;
+    }
+
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .leader-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .leader-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--teal);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .leader-photo-wrap {
+      position: relative;
+      aspect-ratio: 4 / 4.3;
+      background: linear-gradient(135deg, rgba(78,205,196,0.15), rgba(255,255,255,0.03));
+      overflow: hidden;
+    }
+
+    .leader-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .leader-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      letter-spacing: 0.08em;
+      background:
+        radial-gradient(circle at top left, rgba(78,205,196,0.16), transparent 40%),
+        linear-gradient(135deg, rgba(78,205,196,0.12), rgba(255,255,255,0.02));
+    }
+
+    .leader-role-badge {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(10, 16, 24, 0.88);
+      border: 1px solid rgba(78,205,196,0.35);
+      color: var(--teal);
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+    }
+
+    .leader-info {
+      padding: 1.2rem 1.15rem 1.3rem;
+    }
+
+    .leader-name {
+      margin: 0 0 0.35rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .leader-subtitle {
+      margin: 0 0 0.65rem;
+      color: var(--teal);
+      font-size: 0.84rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .leader-note {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .leader-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+
+    .meta-pill {
+      font-size: 0.68rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.07em;
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .featured-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .leader-card.featured {
+      border-left: 3px solid var(--teal);
+    }
+
+    .advisor-card-mini {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .advisor-photo {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(78,205,196,0.35);
+      flex-shrink: 0;
+    }
+
+    .advisor-placeholder {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(78,205,196,0.35);
+      color: var(--teal);
+      font-family: var(--font-display);
+      background: rgba(78,205,196,0.08);
+      flex-shrink: 0;
+    }
+
+    .advisor-text h2 {
+      margin: 0 0 0.3rem;
+      font-size: 1rem;
+    }
+
+    .advisor-text p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .leaders-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+
+      .featured-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .leaders-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .advisor-card-mini {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">
       <div class="atom-icon">⚛</div>
@@ -18,83 +225,195 @@
     </a>
     <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="updates.html">Updates</a></li>
       <li><a href="competition.html">Competition</a></li>
-      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="leadership.html" class="active">Leadership</a></li>
       <li><a href="social.html">Social</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <section class="page-hero">
     <div class="hero-bg"></div>
-    <div class="particles" id="particles"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow fade-in delay-1">Science Olympiad Team</p>
-      <h1 class="hero-title fade-in delay-2">
-        <span class="teal">D</span>NSO
-      </h1>
-      <p class="hero-sub fade-in delay-3">Exploring the universe — one event at a time.</p>
-      <div class="hero-btns fade-in delay-4">
-        <a href="competition.html" class="btn btn-primary">View Schedule</a>
-        <a href="updates.html" class="btn btn-outline">Latest Updates</a>
-      </div>
-    </div>
-    <div class="hero-orbit fade-in delay-2">
-      <div class="orbit-ring ring-1"></div>
-      <div class="orbit-ring ring-2"></div>
-      <div class="orbit-ring ring-3"></div>
-      <div class="orbit-nucleus"></div>
+    <div class="page-hero-content fade-in delay-1">
+      <p class="section-tag">2025–2026 Leadership Team</p>
+      <h1 class="page-title">Meet Our <span class="teal">Leaders</span></h1>
+      <p class="page-sub">The students who help lead DNSO’s teams, operations, outreach, and competition prep throughout the season.</p>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats-bar">
-    <div class="stat"><span class="stat-num">23+</span><span class="stat-label">Events</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">15</span><span class="stat-label">Members</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">2025</span><span class="stat-label">Season</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Curiosity</span></div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section about">
+  <section class="section">
     <div class="section-inner">
-      <div class="about-text">
-        <p class="section-tag">Who We Are</p>
-        <h2 class="section-title">Built on curiosity.<br /><span class="teal">Driven by science.</span></h2>
-        <p class="body-text">DNSO is a competitive Science Olympiad team dedicated to excellence across biology, chemistry, physics, engineering, and earth science. We compete, collaborate, and push each other to grow — both as scientists and as teammates.</p>
-        <a href="leadership.html" class="btn btn-outline" style="margin-top:2rem">Meet Our Team →</a>
+
+      <div class="open-banner fade-in">
+        <span>⚛</span>
+        Meet the students leading DNSO this season.
       </div>
-      <div class="about-cards">
-        <div class="about-card">
-          <div class="card-icon">🔬</div>
-          <h3>Science</h3>
-          <p>Rigorous study across 23 events spanning every scientific discipline.</p>
+
+      <h2 class="section-title" style="margin-bottom:2rem">Executive <span class="teal">Leadership</span></h2>
+
+      <div class="featured-row">
+        <div class="leader-card featured fade-in">
+          <div class="leader-photo-wrap">
+            <!-- Replace with actual image -->
+            <!-- <img src="images/co-president-1.jpg" alt="Name" class="leader-photo"> -->
+            <div class="leader-placeholder">PHOTO</div>
+            <div class="leader-role-badge">Co-President</div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Student Name</h3>
+            <p class="leader-subtitle">Co-President</p>
+            <p class="leader-note">Leads club-wide operations, team coordination, and major decisions for the season.</p>
+            <div class="leader-meta">
+              <span class="meta-pill">Junior</span>
+              <span class="meta-pill">2025–2026</span>
+            </div>
+          </div>
         </div>
-        <div class="about-card">
-          <div class="card-icon">🏆</div>
-          <h3>Competition</h3>
-          <p>Regional invitationals, and state-level tournaments.</p>
+
+        <div class="leader-card featured fade-in delay-1">
+          <div class="leader-photo-wrap">
+            <!-- <img src="images/co-president-2.jpg" alt="Name" class="leader-photo"> -->
+            <div class="leader-placeholder">PHOTO</div>
+            <div class="leader-role-badge">Co-President</div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Student Name</h3>
+            <p class="leader-subtitle">Co-President</p>
+            <p class="leader-note">Helps guide strategy, meetings, and team organization across all six teams.</p>
+            <div class="leader-meta">
+              <span class="meta-pill">Junior</span>
+              <span class="meta-pill">2025–2026</span>
+            </div>
+          </div>
         </div>
-        <div class="about-card">
-          <div class="card-icon">🤝</div>
-          <h3>Community</h3>
-          <p>A team that supports each other inside and outside the event room.</p>
+      </div>
+
+      <h2 class="section-title" style="margin-bottom:2rem">Officer <span class="teal">Team</span></h2>
+
+      <div class="leaders-grid">
+
+        <div class="leader-card fade-in">
+          <div class="leader-photo-wrap">
+            <!-- <img src="images/vice-president.jpg" alt="Vice President" class="leader-photo"> -->
+            <div class="leader-placeholder">PHOTO</div>
+            <div class="leader-role-badge">Vice President</div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Student Name</h3>
+            <p class="leader-subtitle">Vice President</p>
+            <p class="leader-note">Supports leadership decisions and helps coordinate teams and advisors.</p>
+            <div class="leader-meta">
+              <span class="meta-pill">Sophomore</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="leader-card fade-in delay-1">
+          <div class="leader-photo-wrap">
+            <!-- <img src="images/treasurer.jpg" alt="Treasurer" class="leader-photo"> -->
+            <div class="leader-placeholder">PHOTO</div>
+            <div class="leader-role-badge">Treasurer</div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Student Name</h3>
+            <p class="leader-subtitle">Treasurer</p>
+            <p class="leader-note">Manages club finances, reimbursements, orders, and sponsorship outreach.</p>
+            <div class="leader-meta">
+              <span class="meta-pill">Finance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="leader-card fade-in delay-2">
+          <div class="leader-photo-wrap">
+            <!-- <img src="images/secretary.jpg" alt="Secretary / Publicity" class="leader-photo"> -->
+            <div class="leader-placeholder">PHOTO</div>
+            <div class="leader-role-badge">Secretary / Publicity</div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Student Name</h3>
+            <p class="leader-subtitle">Secretary / Publicity</p>
+            <p class="leader-note">Oversees club communications, publicity, meeting notes, and media efforts.</p>
+            <div class="leader-meta">
+              <span class="meta-pill">Communications</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="leader-card fade-in">
+          <div class="leader-photo-wrap">
+            <!-- <img src="images/tech-coordinator.jpg" alt="Technology Coordinator" class="leader-photo"> -->
+            <div class="leader-placeholder">PHOTO</div>
+            <div class="leader-role-badge">Technology Coordinator</div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Student Name</h3>
+            <p class="leader-subtitle">Technology Coordinator</p>
+            <p class="leader-note">Maintains the website and helps organize the team’s long-term event knowledge base.</p>
+            <div class="leader-meta">
+              <span class="meta-pill">Tech</span>
+              <span class="meta-pill">Coding</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="leader-card fade-in delay-1">
+          <div class="leader-photo-wrap">
+            <!-- <img src="images/build-advisor.jpg" alt="Building Event Advisor" class="leader-photo"> -->
+            <div class="leader-placeholder">PHOTO</div>
+            <div class="leader-role-badge">Building Event Advisor</div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Student Name</h3>
+            <p class="leader-subtitle">Building Event Advisor</p>
+            <p class="leader-note">Supports build teams with planning, rules knowledge, materials, and execution.</p>
+            <div class="leader-meta">
+              <span class="meta-pill">Build Events</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="leader-card fade-in delay-2">
+          <div class="leader-photo-wrap">
+            <!-- Optional extra role -->
+            <!-- <img src="images/media-advisor.jpg" alt="Media Advisor" class="leader-photo"> -->
+            <div class="leader-placeholder">PHOTO</div>
+            <div class="leader-role-badge">Media Advisor</div>
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">Student Name</h3>
+            <p class="leader-subtitle">Media Advisor</p>
+            <p class="leader-note">Helps support club visuals, media content, and communication projects.</p>
+            <div class="leader-meta">
+              <span class="meta-pill">Optional</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section advisor-section">
+    <div class="section-inner">
+      <h2 class="section-title" style="margin-bottom:1.5rem">Faculty <span class="teal">Advisor</span></h2>
+
+      <div class="advisor-card-mini fade-in">
+        <!-- <img src="images/advisor.jpg" alt="Advisor Name" class="advisor-photo"> -->
+        <div class="advisor-placeholder">PHOTO</div>
+        <div class="advisor-text">
+          <p class="section-tag" style="margin-bottom:0.45rem">Faculty / Head Coach</p>
+          <h2>[ Advisor Name ]</h2>
+          <p>Guides DNSO throughout the season by providing mentorship, support, and continuity for the team.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-logo">
-        <span class="teal">⚛</span> DNSO Science Olympiad
-      </div>
+      <div class="footer-logo"><span class="teal">⚛</span> DNSO Science Olympiad</div>
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="updates.html">Updates</a>
